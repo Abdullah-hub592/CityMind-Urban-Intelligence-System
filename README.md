@@ -83,7 +83,9 @@ citymind/
 └── requirements.txt
 ```
 ▶️ Running the Simulation
+```text
 python main.py
+```
 Notes
 First run may take 5–15 seconds
 Initializes:
