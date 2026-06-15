@@ -81,7 +81,7 @@ citymind/
 ├── main.py                  # Application entry point
 ├── smoketest.py             # Headless integration test
 └── requirements.txt
-```text
+```
 ▶️ Running the Simulation
 python main.py
 Notes
