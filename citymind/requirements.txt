@@ -1,0 +1,4 @@
+PyQt6>=6.5
+networkx>=3.0
+scikit-learn>=1.3
+numpy>=1.24
