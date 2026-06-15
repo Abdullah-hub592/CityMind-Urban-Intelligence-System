@@ -52,7 +52,7 @@ The simulation runs across 30 configurable steps with real-time updates affectin
 ### 👮 C6: Police Dispatch
 - K-Means zone clustering
 - Dynamic police allocation
-- `challenges/c_police.py`
+- challenges/c_police.py
 
 ---
 
@@ -81,3 +81,53 @@ citymind/
 ├── main.py                  # Application entry point
 ├── smoketest.py             # Headless integration test
 └── requirements.txt
+```text
+▶️ Running the Simulation
+python main.py
+Notes
+First run may take 5–15 seconds
+Initializes:
+CSP solver
+Genetic algorithm
+ML models
+UI shows loading status during startup
+🎮 Controls
+Space → Play / Pause simulation
+Right Arrow → Step forward one tick
+R → Toggle road overlay
+A → Toggle ambulance coverage
+C → Toggle crime heatmap
+P → Toggle police zones
+F → Toggle A* path visualization
+D → Toggle population density view
+Ctrl + R → Reset simulation (keep layout)
+Ctrl + I → Rebuild entire city
+Ctrl + S → Save event log
+🔁 Simulation Workflow
+
+The simulation runs for 30 steps (configurable 5–100).
+
+Each Step
+20% chance road flooding → triggers ROAD_BLOCKED event
+Ambulances move using A*
+Dynamic replanning if path is blocked
+Every 5 Steps
+Simulated Annealing optimizes ambulance placement
+Every 10 Steps
+K-Means + Decision Tree updates crime prediction
+Police zones are redistributed
+🧠 System Behavior
+All modules react dynamically to graph changes
+EventBus propagates updates instantly
+Example flow:
+Road blocked → rerouting → ambulance shift → police update
+🏗️ Key Design Highlights
+Single shared NetworkX graph
+Event-driven architecture
+Fully decoupled AI modules
+Real-time system updates
+Scalable multi-agent design
+📄 Output
+citymind_log.txt
+Complete simulation event log
+Auto-saved on exit
